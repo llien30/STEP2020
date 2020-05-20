@@ -12,14 +12,12 @@ def get_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-# 辞書の前処理をする
 def make_count_dict(dictionary: List[str]) -> List[Tuple[DefaultDict[str, int], str]]:
     count_dictionary = []
 
     # それぞれの単語について文字数をカウントして新しい辞書に追加
     for word in dictionary:
 
-        # 全て小文字へ変換
         lower_word = word.lower()
 
         # 単語内の文字数をカウント
@@ -34,7 +32,6 @@ def make_count_dict(dictionary: List[str]) -> List[Tuple[DefaultDict[str, int], 
     return count_dictionary
 
 
-# それぞれの文字を点数に変換する辞書を作成
 def make_letter2point() -> DefaultDict[str, int]:
     letter2point = defaultdict(lambda: 1)
     for letter in ["c", "f", "h", "l", "m", "p", "v", "w", "y"]:
@@ -44,14 +41,12 @@ def make_letter2point() -> DefaultDict[str, int]:
     return letter2point
 
 
-# 辞書内のAnagramを全て探索(O(n))する
-# 最大の点数のアナグラムを返す
-def search_anagram(
+def search_best_anagram(
     input_word: str,
     dictionary: List[Tuple[DefaultDict[str, int], str]],
     letter2point: DefaultDict[str, int],
 ) -> str:
-    # 全て小文字へ変換
+
     lower_input_word = list(input_word.lower())
 
     # 単語内の文字数をカウント
@@ -101,7 +96,7 @@ def main() -> None:
         in_word = input().lower()
         if in_word == "q":
             return
-        anagram = search_anagram(in_word, count_dict, letter2point)
+        anagram = search_best_anagram(in_word, count_dict, letter2point)
         print(anagram)
 
 
