@@ -57,9 +57,9 @@ def search_best_anagram(
     # その単語にqがある時はuの個数を1減らす
     input_word_dict["u"] -= input_word_dict["q"]
 
-    # 辞書内の全単語についてAnagramかどうか確認
-    # 同時に点数も計算
+    # 辞書内の全単語探索、同時に点数も計算
     max_point = 0
+    anagram = "Anagram does not exist in this dictionary"
     for word_dict, word in dictionary:
         letters = word_dict.keys()
         exists = True
@@ -90,8 +90,8 @@ def main() -> None:
     letter2point = make_letter2point()
 
     print("Ready to search Anagram")
-    # 'q'という入力が入るまで、アナグラムを返し続ける
-    # 少なくとも１回は入力があることを仮定
+    print('Enter "q" if you want to stop program')
+
     while True:
         in_word = input().lower()
         if in_word == "q":
