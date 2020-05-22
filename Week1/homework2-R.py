@@ -82,6 +82,8 @@ def search_best_anagram(
             anagram = word
             return anagram
 
+    return anagram
+
 
 def main() -> None:
     args = get_arguments()
