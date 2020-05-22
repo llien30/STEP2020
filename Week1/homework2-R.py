@@ -52,7 +52,7 @@ def make_sorted_count_dict(
     return count_dictionary
 
 
-def check_anagram_ornot(
+def isanagram(
     input_word_dict: DefaultDict[str, int], word_dict: DefaultDict[str, int]
 ) -> bool:
 
@@ -84,7 +84,7 @@ def search_best_anagram(
     anagram = "Anagram does not exist in this dictionary"
 
     for word_dict, point, word in dictionary:
-        if check_anagram_ornot(input_word_dict, word_dict):
+        if isanagram(input_word_dict, word_dict):
             anagram = word
             return anagram
 
