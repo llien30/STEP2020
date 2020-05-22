@@ -34,7 +34,7 @@ def make_sorted_count_dict(
         lower_word = word.lower()
         point = 0
 
-        # 単語内の文字数をカウント
+        # 文字数カウント,ポイント計算
         word_dict = defaultdict(int)
         for letter in lower_word:
             word_dict[letter] += 1
@@ -60,7 +60,7 @@ def search_best_anagram(
 
     lower_input_word = list(input_word.lower())
 
-    # 単語内の文字数をカウント
+    # 文字数カウント
     input_word_dict = defaultdict(int)
     for letter in lower_input_word:
         input_word_dict[letter] += 1
@@ -92,7 +92,7 @@ def main() -> None:
 
     letter2point = make_letter2point()
 
-    count_dict = make_sorted_count_dict(dictionary, letter2point)
+    sorted_dict = make_sorted_count_dict(dictionary, letter2point)
 
     print("Ready to search Anagram")
     print('Enter "q" if you want to stop program')
@@ -101,7 +101,7 @@ def main() -> None:
         in_word = input().lower()
         if in_word == "q":
             return
-        anagram = search_best_anagram(in_word, count_dict, letter2point)
+        anagram = search_best_anagram(in_word, sorted_dict, letter2point)
         print(anagram)
 
 

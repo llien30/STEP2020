@@ -9,6 +9,8 @@ def make_lower_sorted_word(word: str) -> str:
 
 
 def make_sorted_dict(dictionary: List[str]) -> List[Tuple[str, str]]:
+    # dog -> (dgo, dog) のリストを返す
+
     new_dictionary = []
 
     # それぞれの単語について文字をソートして新しい辞書に追加
@@ -22,28 +24,28 @@ def make_sorted_dict(dictionary: List[str]) -> List[Tuple[str, str]]:
 
 
 def bisect(right: int, left: int, word: str, dictionary: List[Tuple[str, str]]) -> str:
-    middle = (right + left) // 2
-    mid_word = dictionary[middle][0]
 
-    # 終了条件
-    if right - left <= 1:
-        if dictionary[middle][0] == word:
-            return dictionary[middle][1]
+    while right - left > 1:
+        middle = (right + left) // 2
+        mid_word = dictionary[middle][0]
+
+        # 答えがmiddleより左側にある場合、rightをmiddleに変更
+        if word < mid_word:
+            right = middle
+
+        # 答えがmiddleより右側にある場合、leftをmiddleに変更
         else:
-            return "Anagram does not exist in this dictionary"
+            left = middle
 
-    # 答えがmiddleより左側にある場合、rightをmiddleに変更
-    elif word < mid_word:
-        right = middle
-        return bisect(right, left, word, dictionary)
-
-    # 答えがmiddleより右側にある場合、leftをmiddleに変更
+    middle = (right + left) // 2
+    if dictionary[middle][0] == word:
+        return dictionary[middle][1]
     else:
-        left = middle
-        return bisect(right, left, word, dictionary)
+        return "Anagram does not exist in this dictionary"
 
 
 def search_anagram(word: str, dictionary: List[Tuple[str, str]]) -> str:
+
     first_word = dictionary[0][0]
     last_word = dictionary[-1][0]
 
