@@ -52,6 +52,18 @@ def make_sorted_count_dict(
     return count_dictionary
 
 
+def check_anagram_ornot(
+    input_word_dict: DefaultDict[str, int], word_dict: DefaultDict[str, int]
+) -> bool:
+
+    letters = word_dict.keys()
+    for letter in letters:
+        if input_word_dict[letter] < word_dict[letter]:
+            return False
+
+    return True
+
+
 def search_best_anagram(
     input_word: str,
     dictionary: List[Tuple[DefaultDict[str, int], str]],
@@ -70,15 +82,9 @@ def search_best_anagram(
 
     # 辞書内の全単語探索、一番最初に見つかったアナグラムを返す
     anagram = "Anagram does not exist in this dictionary"
-    for word_dict, point, word in dictionary:
-        letters = word_dict.keys()
-        exists = True
-        for letter in letters:
-            if input_word_dict[letter] < word_dict[letter]:
-                exists = False
-                break
 
-        if exists:
+    for word_dict, point, word in dictionary:
+        if check_anagram_ornot(input_word_dict, word_dict):
             anagram = word
             return anagram
 
