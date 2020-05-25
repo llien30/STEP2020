@@ -62,7 +62,7 @@ def main():
         {"N": n_list, "time": calc_time, "numpy time": np_time, "sum": total_sum},
         columns=["N", "time", "numpy time", "sum"],
     )
-    df.to_csv("homework1.csv", index=None)
+    df.to_csv("./result/homework1.csv", index=None)
 
 
 if __name__ == "__main__":

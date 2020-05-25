@@ -2,10 +2,9 @@
 
 ## Week1 : Anagram
 #### Homework1 : Search Anagram
-- bisect
 #### Homework2 : Search best word for this [game](https://icanhazwordz.appspot.com/) using given letters
 
-## Week2 : 
+## Week2 : Algorithms and Data Structures
 
 ## Week3 : 
 
