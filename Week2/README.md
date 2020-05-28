@@ -2,11 +2,10 @@
 
 ## Homework1
 ![Calculation time](./image/homework1.png)
-![Python Calculation time](./image/python_calc_time.png)
-![numpy Calculation time](./image/numpy_calc_time.png)
+![C and numpy Calculation time](./image/homework1-1.png)
 
-* PythonコードのオーダーはO(N^3).
-* numpy(ソースコードはC言語)で計算した方が、Pythonのコードとは比較できないくらい早かった
+* PythonとCのコードのオーダーはO(N^3).
+* numpyやC言語で計算した方が、Pythonのコードとは比較できないくらい早かった.
 
 ## Homework2
 ### Question
@@ -36,25 +35,25 @@ N人のusernameとpasswardのデータベースなら、ほんとに必要なの
 ### Answer
 #### Idea1
 リストと辞書(ハッシュテーブル)を使う. \
-[My Code Here](./cache1.py)
+[My Code Here](./cache1.py) \
 **X = 3**で、\
 "A.com : AAA" → "B.com : BBB" → "C.com : CCC" → "A.com : AAA" → "D.com : DDD" \
 とアクセスされた時、\
-リスト : ['D.com','A.com','C.com']\
+リスト : [D.com,A.com,C.com]\
 辞書  : {'A.com' :'AAA', 'C.com': 'CCC', 'D.com' : 'DDD'} \
 となるように保存しておく. \
 ![Time Complexity](./image/cache1.png)
 
 #### Idea2
-リストと辞書と`index value`を使う\
-[My Code Here](./cache2.py)
+リストと辞書とindex valueを使う\
+[My Code Here](./cache2.py) \
 **X = 3**で、\
 "A.com : AAA" → "B.com : BBB" → "C.com : CCC" → "A.com : AAA" → "D.com : DDD" \
 とアクセスされた時、\
-リスト :　["A.com", "D.com", "C.com"]
+リスト :　[A.com,D.com,C.com]
 辞書2 : {'A.com' :'AAA', 'C.com': 'CCC', 'D.com' : 'DDD'} \
 most_old : 2 \
-次にアクセスされたものは、一番古いところに保存し、`most_old` を+1 (と %X)する. \
+次にアクセスされたものは、一番古いところに保存し、`most_old` (index value) を+1する. \
 ![Time Complexity](./image/cache2.png)
 
 ## Homework4
