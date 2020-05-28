@@ -35,7 +35,7 @@ N人のusernameとpasswardのデータベースなら、ほんとに必要なの
 ### Answer
 #### Idea1
 リストと辞書(ハッシュテーブル)を使う. \
-[My Code Here](./cache1.py) \
+[My Code Here](./homework4/cache1.py) \
 **X = 3**で、\
 "A.com : AAA" → "B.com : BBB" → "C.com : CCC" → "A.com : AAA" → "D.com : DDD" \
 とアクセスされた時、\
@@ -46,7 +46,7 @@ N人のusernameとpasswardのデータベースなら、ほんとに必要なの
 
 #### Idea2
 リストと辞書とindex valueを使う\
-[My Code Here](./cache2.py) \
+[My Code Here](./homework4/cache2.py) \
 **X = 3**で、\
 "A.com : AAA" → "B.com : BBB" → "C.com : CCC" → "A.com : AAA" → "D.com : DDD" \
 とアクセスされた時、\
