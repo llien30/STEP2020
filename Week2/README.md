@@ -34,18 +34,28 @@ N人のusernameとpasswardのデータベースなら、ほんとに必要なの
 * もしある場合、キャッシュの中にある[URL, Webページ]を一番新しい要素の位置に移動
 
 ### Answer
-##### Idea1
+#### Idea1
 リストと辞書(ハッシュテーブル)を使う. \
+[My Code Here](./cache1.py)
 **X = 3**で、\
 "A.com : AAA" → "B.com : BBB" → "C.com : CCC" → "A.com : AAA" → "D.com : DDD" \
 とアクセスされた時、\
 リスト : ['D.com','A.com','C.com']\
 辞書  : {'A.com' :'AAA', 'C.com': 'CCC', 'D.com' : 'DDD'} \
 となるように保存しておく. \
-Time Complexity : O(X) (リストからの要素の削除(古いもの、新しくアクセスされたもの)), 追加、検索はO(1) \
-Space Complexity : O(X) (X個の要素の保存)
+![Time Complexity](./image/cache1.png)
 
-##### Idea2
+#### Idea2
+リストと辞書と`index value`を使う\
+[My Code Here](./cache2.py)
+**X = 3**で、\
+"A.com : AAA" → "B.com : BBB" → "C.com : CCC" → "A.com : AAA" → "D.com : DDD" \
+とアクセスされた時、\
+リスト :　["A.com", "D.com", "C.com"]
+辞書2 : {'A.com' :'AAA', 'C.com': 'CCC', 'D.com' : 'DDD'} \
+most_old : 2 \
+次にアクセスされたものは、一番古いところに保存し、`most_old` を+1 (と %X)する. \
+![Time Complexity](./image/cache2.png)
 
 ## Homework4
 Homework3の実装をしてみる.

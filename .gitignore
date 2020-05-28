@@ -8,3 +8,4 @@ work2.py
 .DS_Store
 *.pdf
 *.numbers
+__pycache__
