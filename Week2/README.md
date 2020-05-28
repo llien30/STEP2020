@@ -50,7 +50,7 @@ N人のusernameとpasswardのデータベースなら、ほんとに必要なの
 **X = 3**で、\
 "A.com : AAA" → "B.com : BBB" → "C.com : CCC" → "A.com : AAA" → "D.com : DDD" \
 とアクセスされた時、\
-リスト :　[A.com,D.com,C.com]
+リスト :　[A.com,D.com,C.com] \
 辞書2 : {'A.com' :'AAA', 'C.com': 'CCC', 'D.com' : 'DDD'} \
 most_old : 2 \
 次にアクセスされたものは、一番古いところに保存し、`most_old` (index value) を+1する. \
