@@ -5,7 +5,7 @@
 
 * PythonとCのコードのオーダーはO(N^3).
 * numpyやC言語で計算した方が、Pythonのコードとは比較できないくらい早かった.
-* CとPythonでは大体どのNに対しても10^3の時間の差があった. 
+* numpyのコードのオーダーはO(N^3)ではなさそう. 
 
 ## Homework2
 ### Question
