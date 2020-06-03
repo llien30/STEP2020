@@ -16,7 +16,7 @@ class Cache:
 
     def access_page(self, url: str, contents: str) -> None:
         # when the accessed page is cached
-        if url in self.cached_pages_list:
+        if url in self.page_dict:
             if len(self.cached_pages_list) < self.cache_size:
                 self.cached_pages_list.remove(url)
                 self.cached_pages_list.append(url)
