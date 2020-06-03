@@ -9,3 +9,4 @@ work2.py
 *.pdf
 *.numbers
 __pycache__
+*.out

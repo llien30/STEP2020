@@ -6,6 +6,6 @@
 
 ## Week2 : Algorithms and Data Structures
 
-## Week3 : 
+## Week3 : How to Write Good Code.
 
 ## Week4 : 
