@@ -1,5 +1,20 @@
 """
-tokens 
+tokens structure → list of dictionary
+
+'+' : {'type':'PLUS'}
+'-' : {'type':'MINUS'}
+'*' : {'type':'TIMES'}
+'/' : {'type':'DIVISION'}
+'(' : {'type':'BRACKET_L'}
+')' : {'type':'BRACKET_R'}
+number : {'type':'NUMBER', 'number':number}
+
+eg) 1 + 2 * 3
+tokens = [{'type':'NUMBER', 'number':1},
+        {'type':'PLUS'},
+        {'type':'NUMBER', 'number':2},
+        {'type':'TIMES'},
+        {'type':'NUMBER','number':3}]
 """
 
 
