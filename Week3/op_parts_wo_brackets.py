@@ -64,21 +64,26 @@ def tokenize(line: str) -> List[Token]:
 
 
 def eval_time_div(tokens: List[Token]) -> List[Token]:
+    # return tokens only plus and minus
     tokens.insert(0, {"type": "PLUS"})
     index = 1
+    calc_index = -1
+
     while index < len(tokens):
         if tokens[index]["type"] == "NUMBER":
             if tokens[index - 1]["type"] == "TIMES":
-                tokens[index - 2]["number"] *= tokens[index]["number"]
+                tokens[calc_index]["number"] *= tokens[index]["number"]
 
             elif tokens[index - 1]["type"] == "DIVISION":
                 if tokens[index]["number"] == 0:
-                    print("Error : Cannot divided by 0")
+                    print("Error: Cannot divided by zero")
                     exit(1)
+                tokens[calc_index]["number"] /= tokens[index]["number"]
 
-                tokens[index - 2]["number"] /= tokens[index]["number"]
+            elif tokens[index - 1]["type"] in ["PLUS", "MINUS"]:
+                calc_index = index
 
-            elif tokens[index - 1]["type"] not in ["PLUS", "MINUS"]:
+            else:
                 print("Invalid syntax")
                 exit(1)
 
