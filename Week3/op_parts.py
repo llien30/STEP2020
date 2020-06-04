@@ -1,24 +1,12 @@
-"""
-tokens structure → list of dictionary
+from typing import Dict, List, Tuple, TypeVar
 
-'+' : {'type':'PLUS'}
-'-' : {'type':'MINUS'}
-'*' : {'type':'TIMES'}
-'/' : {'type':'DIVISION'}
-'(' : {'type':'BRACKET_L'}
-')' : {'type':'BRACKET_R'}
-number : {'type':'NUMBER', 'number':number}
-
-eg) 1 + 2 * 3
-tokens = [{'type':'NUMBER', 'number':1},
-        {'type':'PLUS'},
-        {'type':'NUMBER', 'number':2},
-        {'type':'TIMES'},
-        {'type':'NUMBER','number':3}]
-"""
+# Type declarations
+Answer = TypeVar("Answer", int, float)
+T = TypeVar("T", str, int, float)
+Token = Dict[str, T]
 
 
-def readNumber(line, index):
+def readNumber(line: str, index: int) -> Tuple[Token, int]:
     number = 0
     while index < len(line) and line[index].isdigit():
         number = number * 10 + int(line[index])
@@ -34,37 +22,37 @@ def readNumber(line, index):
     return token, index
 
 
-def readPlus(line, index):
+def readPlus(line: str, index: int) -> Tuple[Token, int]:
     token = {"type": "PLUS"}
     return token, index + 1
 
 
-def readMinus(line, index):
+def readMinus(line: str, index: int) -> Tuple[Token, int]:
     token = {"type": "MINUS"}
     return token, index + 1
 
 
-def readTimes(line, index):
+def readTimes(line: str, index: int) -> Tuple[Token, int]:
     token = {"type": "TIMES"}
     return token, index + 1
 
 
-def readDivision(line, index):
+def readDivision(line: str, index: int) -> Tuple[Token, int]:
     token = {"type": "DIVISION"}
     return token, index + 1
 
 
-def readLeftBracket(line, index):
+def readLeftBracket(line: str, index: int) -> Tuple[Token, int]:
     token = {"type": "BRACKET_L"}
     return token, index + 1
 
 
-def readRightBracket(line, index):
+def readRightBracket(line: str, index: int) -> Tuple[Token, int]:
     token = {"type": "BRACKET_R"}
     return token, index + 1
 
 
-def tokenize(line):
+def tokenize(line: str) -> List[Token]:
     tokens = []
     index = 0
     while index < len(line):
@@ -89,7 +77,7 @@ def tokenize(line):
     return tokens
 
 
-def eval_time_div(tokens):
+def eval_time_div(tokens: List[Token]) -> List[Token]:
     # return tokens only plus and minus
     tokens.insert(0, {"type": "PLUS"})
     index = 1
@@ -101,6 +89,9 @@ def eval_time_div(tokens):
                 tokens[calc_index]["number"] *= tokens[index]["number"]
 
             elif tokens[index - 1]["type"] == "DIVISION":
+                if tokens[index]["number"] == 0:
+                    print("Error: Cannot divided by zero")
+                    exit(1)
                 tokens[calc_index]["number"] /= tokens[index]["number"]
 
             elif tokens[index - 1]["type"] in ["PLUS", "MINUS"]:
@@ -112,6 +103,7 @@ def eval_time_div(tokens):
 
         index += 1
 
+    # Retokenize the calculated tokens
     calced_token = []
 
     for index in range(len(tokens)):
@@ -131,7 +123,7 @@ def eval_time_div(tokens):
     return calced_token
 
 
-def eval_plus_minus(tokens):
+def eval_plus_minus(tokens: List[Token]) -> Answer:
     answer = 0
     index = 1
 
@@ -149,13 +141,13 @@ def eval_plus_minus(tokens):
     return answer
 
 
-def eval_op(tokens):
+def eval_op(tokens: List[Token]) -> Answer:
     tokens = eval_time_div(tokens)
     answer = eval_plus_minus(tokens)
     return answer
 
 
-def evaluate(tokens):
+def evaluate(tokens: List[Token]) -> Answer:
     if len(tokens) == 1:
         return tokens[0]["number"]
 

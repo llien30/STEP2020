@@ -2,34 +2,41 @@ from op_parts import tokenize, evaluate
 from calc_test import test
 
 
-def runTest():
+def runTest() -> None:
     print("==== Test started! ====")
     test("1")
+    test("12")
     test("1+2")
-    test("1.0+2.1-3")
+    test("2-1")
     test("2*3")
     test("2/3")
+    test("1+2-3")
     test("1+2*3")
     test("1+2/3")
+    test("1-2*4")
+    test("2-3/2")
     test("2*3/5")
     test("1+2*3-2/3")
     test("1.2+2.1*2.5/5.6-3.0")
     print("==== Test finished! ====\n")
 
 
-def runBracketTest():
+def runBracketTest() -> None:
     print("==== Bracket Test started! ====")
+    test("(1)")
+    test("((1))")
     test("(1.5)")
     test("1+(2-3)")
     test("1-(2*3-5)")
     test("2*(2/5)")
+    test("(1+(1-(2-(3+4)*2)/3)+1)/2")
     test("2.0*(2.0/3.0)")
     test("2*((2-3*4)*5)/2")
     test("(2.5+3/4-((2.0*3-4)+2)/(1.5/0.3))/4")
     print("==== Bracket Test finished! ====\n")
 
 
-def main():
+def main() -> None:
     runTest()
     runBracketTest()
     while True:
