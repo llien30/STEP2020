@@ -1,4 +1,4 @@
-from op_parts import tokenize, evaluate
+from calculator import tokenize, evaluate
 
 
 def test(line):

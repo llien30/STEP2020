@@ -1,4 +1,4 @@
-from op_parts_wo_brackets import tokenize, evaluate
+from calculator_wo_brackets import tokenize, evaluate
 
 
 def test(line):
