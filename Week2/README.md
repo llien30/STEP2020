@@ -1,11 +1,11 @@
 # Week2 Homework
 
 ## Homework1
-![Calculation time](./image/homework1-1.png)
+![Calculation time](./image/homework1.png)
 
 * PythonとCのコードのオーダーはO(N^3).
 * numpyやC言語で計算した方が、Pythonのコードとは比較できないくらい早かった.
-* numpyのコードのオーダーはO(N^3)ではなさそう. 
+* numpyのコードのオーダーはO(N^3)ではなさそう. O(N)?
 
 ## Homework2
 ### Question
@@ -47,7 +47,7 @@
 次にアクセスされたページが辞書に入っていたら (探索 O(1)), \
 リストからそのページを削除 (O(n)) → 新しくアクセスされたページをリストの最初と辞書に追加 (O(n)) : O(n)\
 次にアクセスされたページが辞書に入っていなかったら (探索 O(1)), \
-リストの一番後ろのページをリストと辞書から削除 (O(1)) → 新しくアクセスされたページをリストの最初と辞書に追加 (O(n)) : O(n) \
+リストの一番後ろのページをリストと辞書から削除 (O(1)) → 新しくアクセスされたページをリストの最初と辞書に追加 (O(n)) : O(n) 
 
 ![Time Complexity](./image/cache1.png)
 
