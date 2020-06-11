@@ -2,7 +2,7 @@ from libs import (
     find_shortest_path,
     make_sns_unionfind,
     make_link_list,
-    make_cheange_type_dict,
+    make_change_type_dict,
 )
 from typing import Dict, List
 
@@ -52,7 +52,7 @@ def check_sns(
 
 
 def main():
-    name2id, id2name, n_people = make_cheange_type_dict("./sns/nicknames.txt")
+    name2id, id2name, n_people = make_change_type_dict("./sns/nicknames.txt")
     link_list = make_link_list("./sns/links.txt", n_people)
     network = make_sns_unionfind("./sns/links.txt", n_people)
 

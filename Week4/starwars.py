@@ -2,7 +2,7 @@ from libs import (
     find_shortest_path,
     make_sns_unionfind,
     make_link_list,
-    make_cheange_type_dict,
+    make_change_type_dict,
 )
 from typing import Dict, List
 
@@ -54,10 +54,13 @@ def check_starwars(
 
 
 def main():
-    name2id, id2name, n_people = make_cheange_type_dict("./starwars/names.txt")
+    name2id, id2name, n_people = make_change_type_dict("./starwars/names.txt")
     link_list = make_link_list("./starwars/links.txt", n_people)
     network = make_sns_unionfind("./starwars/links.txt", n_people)
 
+    n_groups = network.get_n_groups()
+    print("starwars characters are separated into {} groups!".format(n_groups))
+    print(network.get_members_dict())
     while True:
         start = input("Enter the name you want to start : ")
         goal = input("Enter the name you want to reach : ")

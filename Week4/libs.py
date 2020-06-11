@@ -89,7 +89,7 @@ class UnionFind:
         return {par: self.get_members(par) for par in self.get_parent_list()}
 
 
-def make_cheange_type_dict(filename: str) -> Tuple[Name2Id, Id2Name, int]:
+def make_change_type_dict(filename: str) -> Tuple[Name2Id, Id2Name, int]:
     """make Name2Id and Id2Name dictionary
 
     Name2Id : input name -> output id

@@ -2,7 +2,7 @@ from libs import (
     find_shortest_path,
     make_train_unionfind,
     make_weighted_link_list,
-    make_cheange_type_dict,
+    make_change_type_dict,
 )
 from typing import Dict, List
 
@@ -55,7 +55,7 @@ def check_train(
 
 
 def main():
-    name2id, id2name, n_station = make_cheange_type_dict("./train/stations.txt")
+    name2id, id2name, n_station = make_change_type_dict("./train/stations.txt")
     link_list = make_weighted_link_list("./train/edges.txt", n_station)
     network = make_train_unionfind("./train/edges.txt", n_station)
 

@@ -1,6 +1,6 @@
 from libs import (
     find_shortest_path,
-    make_cheange_type_dict,
+    make_change_type_dict,
     make_one_way_link,
     make_wikipedia_unionfind,
 )
@@ -42,7 +42,7 @@ def check_wikipedia(network, start, goal, n_pages, name2id, id2name, link_list):
 
 
 def main():
-    name2id, id2name, n_pages = make_cheange_type_dict("./wikipedia/pages.txt")
+    name2id, id2name, n_pages = make_change_type_dict("./wikipedia/pages.txt")
     # id2name = make_id2name("./wikipedia/pages.txt")
 
     wikipedia_network = make_wikipedia_unionfind("./wikipedia/links.txt", n_pages)
