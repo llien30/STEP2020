@@ -50,7 +50,7 @@ def main():
     link = make_one_way_link("./wikipedia/links.txt", n_pages)
 
     n_groups = wikipedia_network.get_n_groups()
-    print("Wikipedia is separeted in {}-th groups!!".format(n_groups))
+    print("Wikipedia is separated into {}-th groups!!".format(n_groups))
 
     while True:
         start = input("Enter the name you want to start : ")
