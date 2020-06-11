@@ -1,4 +1,4 @@
-*.txt
+dictionary.txt
 test.py
 work.py
 work1.py
@@ -10,3 +10,5 @@ work2.py
 *.numbers
 __pycache__
 *.out
+Week4/wikipedia/links.txt
+Week4/wikipedia/pages.txt
