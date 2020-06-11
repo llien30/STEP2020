@@ -140,6 +140,24 @@ def make_link_list(filename: str, n_nodes: int) -> List[List[int]]:
     return link_list
 
 
+def make_one_way_link(filename: str, n_nodes: int) -> List[List[int]]:
+    f = open(filename)
+    data = f.read()
+    f.close()
+    lines = data.split("\n")
+
+    link = [[] for _ in range(n_nodes)]
+
+    for line in lines:
+        if not line:
+            continue
+
+        id_1, id_2 = map(int, line.split())
+        link[id_1].append((1, id_2))
+
+    return link
+
+
 def make_weighted_link_list(filename: str, n_nodes: int) -> List[List[int]]:
     f = open(filename)
     data = f.read()

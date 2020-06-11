@@ -1,7 +1,7 @@
 from libs import (
     find_shortest_path,
     make_cheange_type_dict,
-    make_link_list,
+    make_one_way_link,
     make_wikipedia_unionfind,
 )
 
@@ -47,7 +47,7 @@ def main():
 
     wikipedia_network = make_wikipedia_unionfind("./wikipedia/links.txt", n_pages)
 
-    link_list = make_link_list("./wikipedia/links.txt", n_pages)
+    link = make_one_way_link("./wikipedia/links.txt", n_pages)
 
     n_groups = wikipedia_network.get_n_groups()
     print("Wikipedia is separeted in {}-th groups!!".format(n_groups))
@@ -56,9 +56,7 @@ def main():
         start = input("Enter the name you want to start : ")
         goal = input("Enter the name you want to reach : ")
 
-        check_wikipedia(
-            wikipedia_network, start, goal, n_pages, name2id, id2name, link_list
-        )
+        check_wikipedia(wikipedia_network, start, goal, n_pages, name2id, id2name, link)
 
         check = input("Do you want to find path more ? (Y/n) : ")
         if check == "n":
