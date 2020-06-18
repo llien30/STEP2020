@@ -12,10 +12,14 @@
 ### ConvexHull Inseration : challenge2, challenge3, challenege4, challenge5
 凸包を見つけて、そのあとに内側のノードを足していく．\
 challenge3くらいしかない時の凸包だと
+
 ![challenge3convex](./image/graham_scan3.png)
+
 とうまく見つけられそう？な予感がするけど、\
 challenge6ぐらいにもなってくると
+
 ![challenge6onvex](./image/graham_scan6.png)
+
 と、内側のノードどういくかが死ぬほど大事じゃん！となる．\ 
 (ノード数が多いとうまく行きにくいアルゴリズムそう)
 
